@@ -1,12 +1,31 @@
+/* 라이트 모드 변수 */
 :root {
   --bg-color: #f7faf5;
   --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --gradient-start: #d8f3dc;
+  --gradient-end: #ffe5ec;
   --soft-green: #d8f3dc;
-  --vibrant-green: #95d5b2;
   --soft-pink: #ffe5ec;
   --vibrant-pink: #ffb3c6;
   --text-dark: #2d3748;
   --text-muted: #718096;
+  --toggle-bg: #ffffff;
+}
+
+/* 다크 모드 변수 */
+body.dark-mode {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --gradient-start: #2d4a3e;
+  --gradient-end: #4a2d39;
+  --soft-green: #2a3d32;
+  --soft-pink: #3d2a32;
+  --vibrant-pink: #5a3240;
+  --text-dark: #f0f0f0;
+  --text-muted: #a0aec0;
+  --toggle-bg: #2d2d2d;
 }
 
 * {
@@ -23,6 +42,33 @@ body {
   background-color: var(--bg-color);
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   padding: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* 다크/라이트 모드 토글 버튼 (우측 상단 고정) */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--toggle-bg);
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
 }
 
 .profile-card {
@@ -31,18 +77,19 @@ body {
   background-color: var(--card-bg);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .profile-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* 카드 상단 그라데이션 배경 */
 .card-header {
-  height: 100px;
-  background: linear-gradient(135deg, var(--soft-green), var(--soft-pink));
+  height: 110px;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  transition: background 0.3s ease;
 }
 
 .card-body {
@@ -57,8 +104,9 @@ body {
   margin: -50px auto 15px;
   border-radius: 50%;
   padding: 4px;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: var(--card-bg);
+  box-shadow: 0 4px 10px var(--card-shadow);
+  transition: background 0.3s ease;
 }
 
 .profile-img {
@@ -73,12 +121,14 @@ body {
   color: var(--text-dark);
   font-weight: 700;
   margin-bottom: 6px;
+  transition: color 0.3s ease;
 }
 
 .bio {
   font-size: 0.95rem;
   color: var(--text-muted);
   margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .social-links {
@@ -99,7 +149,7 @@ body {
   background-color: var(--soft-green);
   text-decoration: none;
   font-size: 1.1rem;
-  transition: background-color 0.25s ease, transform 0.2s ease;
+  transition: background-color 0.25s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 .social-btn:hover {
@@ -127,14 +177,13 @@ body {
   transform: scale(0.95);
 }
 
-/* 모바일 반응형 처리 */
 @media (max-width: 480px) {
   .profile-card {
     max-width: 100%;
   }
 
   .card-header {
-    height: 80px;
+    height: 90px;
   }
 
   .profile-img-container {
