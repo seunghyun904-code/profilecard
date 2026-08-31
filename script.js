@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 테마 전환 로직
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const themeIcon = themeToggleBtn.querySelector('i');
+
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    } else {
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+  });
+
+  // 좋아요 버튼 로직
   const likeBtn = document.getElementById('likeBtn');
   const likeCount = document.getElementById('likeCount');
   let count = 0;
