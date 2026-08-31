@@ -1,0 +1,153 @@
+:root {
+  --bg-color: #f7faf5;
+  --card-bg: #ffffff;
+  --soft-green: #d8f3dc;
+  --vibrant-green: #95d5b2;
+  --soft-pink: #ffe5ec;
+  --vibrant-pink: #ffb3c6;
+  --text-dark: #2d3748;
+  --text-muted: #718096;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  padding: 20px;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  height: 100px;
+  background: linear-gradient(135deg, var(--soft-green), var(--soft-pink));
+}
+
+.card-body {
+  padding: 0 25px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.profile-img-container {
+  width: 100px;
+  height: 100px;
+  margin: -50px auto 15px;
+  border-radius: 50%;
+  padding: 4px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--text-dark);
+  background-color: var(--soft-green);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: var(--soft-pink);
+  transform: scale(1.1);
+}
+
+.like-btn {
+  background-color: var(--soft-pink);
+  color: #e63946;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.like-btn:hover {
+  background-color: var(--vibrant-pink);
+}
+
+.like-btn:active {
+  transform: scale(0.95);
+}
+
+/* 모바일 반응형 처리 */
+@media (max-width: 480px) {
+  .profile-card {
+    max-width: 100%;
+  }
+
+  .card-header {
+    height: 80px;
+  }
+
+  .profile-img-container {
+    width: 85px;
+    height: 85px;
+    margin-top: -42px;
+  }
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .bio {
+    font-size: 0.88rem;
+  }
+}

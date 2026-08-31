@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노승현 프로필</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="profile-card">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <div class="profile-img-container">
+        <img src="profile.jpg" alt="노승현 프로필 사진" class="profile-img">
+      </div>
+      <h2 class="name">노승현</h2>
+      <p class="bio">저는 행복한 사람입니다.</p>
+      
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-btn github">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-btn linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-btn instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      
+      <button id="likeBtn" class="like-btn">
+        <i class="fa-regular fa-heart"></i> <span id="likeCount">0</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
